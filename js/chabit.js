@@ -82,26 +82,28 @@ class chabit
 
 	updatePMS(pms_details)
 	{
-		console.log(pms_details);
+		//console.log(pms_details);
 		
-			this.pms = [];
-			for(var target_userhash in pms_details)
+		this.pms = [];
+		for(var target_userhash in pms_details)
+		{
+			console.log('Analyse PM conversation with '+target_userhash);
+			if(this.online_users.userIsOnline(target_userhash))
 			{
-				console.log('Analyse PM conversation with '+target_userhash);
-				if(this.online_users.userIsOnline(target_userhash))
-				{
-					var auto_open_conv = true;
-				}else{
-					var auto_open_conv = false;
-				}
-				var pm = new private_conversation(this, target_userhash, pms_details[target_userhash]['MESSAGES'], auto_open_conv);
+				var auto_open_conv = true;
+			}else{
+				var auto_open_conv = false;
+			}
+			var pm = new private_conversation(this, target_userhash, pms_details[target_userhash]['MESSAGES'], auto_open_conv);
 
-				this.pms.push(pm);
-			}
-			if(this.pms.length == 0)
-			{
-				document.getElementById('chabit_pms').innerHTML = '';
-			}
+			this.pms.push(pm);
+		}
+
+		//if no opened pms, delete all opened pms chatbox
+		if(this.pms.length == 0)
+		{
+			document.getElementById('chabit_pms').innerHTML = '';
+		}
 	}
 
 
