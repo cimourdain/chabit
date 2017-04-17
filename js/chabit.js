@@ -55,6 +55,7 @@ class chabit
 
 		this.updatePMS(chatStatus['PMS'], chatStatus['ONLINE_USERS']);
 		
+		this.updateDOM();
 	}
 
 	openPM(event)
@@ -107,7 +108,25 @@ class chabit
 	}
 
 
+	updateDOM()
+	{
+		var minise_buttons = document.getElementsByClassName('minimise');
+		for (var i = 0; i < minise_buttons.length; i++)
+		{
+			//add minimise listener to click
+			minise_buttons[i].addEventListener('click', this.minimiseChatbox, false);
+		}
+	}
 
+	minimiseChatbox(event)
+	{
+		console.log('Minimise chatbox');
+		var target_chatbox_name = event.target.getAttribute("target");
+		console.log(target_chatbox_name);
+		var target_chatbox_element = document.getElementById(target_chatbox_name);
+
+		toggleVisibility(target_chatbox_element);
+	}
 
 	setChatToConnexionError(response)
 	{

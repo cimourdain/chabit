@@ -3,13 +3,13 @@
 	  	<div class="subchatboxheader">
 		    <div class="title">Online Users</div>
 		    <div class="cb_buttons">
-		      <span class="minimise">-</span>
+		      <span class="minimise" target="chabit_online_users_list_content">-</span>
 		    </div>
 		</div><!--subchatboxheader-->
-		<div class="subchatboxcontent disabled">
-      <ul class="user_list">
-		    Loading ...
-      </ul>
+		<div class="subchatboxcontent disabled" id="chabit_online_users_list_content">
+	      <ul class="user_list">
+			    Loading ...
+	      </ul>
 		</div><!--subchatboxcontent-->
 		<div class="subchatboxfooter" id="chabit_loginbox">
 		    Loading ...

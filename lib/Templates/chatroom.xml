@@ -2,11 +2,11 @@
 <div class="subchatboxheader">
   <div class="title">TARGET_NAME</div>
   <div class="cb_buttons">
-    <span class="minimise">-</span>
-    <span class="close">x</span>
+    <span class="minimise" target="chabit_chatroom_content_TARGET_HASH">-</span>
+    <!--<span class="close" target="chabit_chatroom_content_TARGET_HASH">x</span>-->
   </div>
 </div><!--subchatboxheader-->
-<div class="subchatboxcontent disabled">
+<div class="subchatboxcontent disabled" id="chabit_chatroom_content_TARGET_HASH">
   Loading...
 </div><!--subchatboxcontent-->
 <div class="subchatboxfooter">
