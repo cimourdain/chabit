@@ -73,26 +73,29 @@ class onlineUsers
 		
 		$this -> fetchOnlineUsersFromFile();
 		//echo 'Current date :'.$this -> current_date->format('Y-m-d H:i:s').'<br />';
-		//parse users to find 
-		foreach($this -> online_users as $ju => $jud)
+		//parse users to find
+		if(count($this -> online_users) > 0)
 		{
-			//get user last update date as timestamp
-			//echo 'Last update date :'.$jud['LAST_UPDATE'].'<br />';
-			$last_update_date = strtotime($jud['LAST_UPDATE']);
-			
-			
-			//get time diff between now and user last update
-			$diff = round(($this -> getCurrentDate() -> getTimestamp() - $last_update_date)/60, 0);
-			
-			//remove user if inactivity delay is over
-			//echo $ju.' is connected since '.$diff.'mn<br />';
-			if ($diff > $this -> inactive_after_mn)
+			foreach($this -> online_users as $ju => $jud)
 			{
-				//echo 'Remove '.$ju.' because is is over the tolerance of '.$this -> inactive_after_mn.'mn<br />';
-				unset($this -> online_users[$ju]);
+				//get user last update date as timestamp
+				//echo 'Last update date :'.$jud['LAST_UPDATE'].'<br />';
+				$last_update_date = strtotime($jud['LAST_UPDATE']);
+				
+				
+				//get time diff between now and user last update
+				$diff = round(($this -> getCurrentDate() -> getTimestamp() - $last_update_date)/60, 0);
+				
+				//remove user if inactivity delay is over
+				//echo $ju.' is connected since '.$diff.'mn<br />';
+				if ($diff > $this -> inactive_after_mn)
+				{
+					//echo 'Remove '.$ju.' because is is over the tolerance of '.$this -> inactive_after_mn.'mn<br />';
+					unset($this -> online_users[$ju]);
+				}
 			}
+			$this -> updateOnlineUsersFile();
 		}
-		$this -> updateOnlineUsersFile();
 		
 	}
 

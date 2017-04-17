@@ -43,7 +43,7 @@ class chabit
 	updateChatValues(response)
 	{
 	
-		//console.log(response);
+		console.log(response);
 		var chatStatus = JSON.parse(response);
 		//console.log(chatStatus);
 
@@ -82,21 +82,26 @@ class chabit
 
 	updatePMS(pms_details)
 	{
-		this.pms = [];
-		for(var target_userhash in pms_details)
-		{
-			console.log('Analyse PM conversation with '+target_userhash);
-			if(this.online_users.userIsOnline(target_userhash))
+		console.log(pms_details);
+		
+			this.pms = [];
+			for(var target_userhash in pms_details)
 			{
-				var auto_open_conv = true;
-			}else{
-				var auto_open_conv = false;
+				console.log('Analyse PM conversation with '+target_userhash);
+				if(this.online_users.userIsOnline(target_userhash))
+				{
+					var auto_open_conv = true;
+				}else{
+					var auto_open_conv = false;
+				}
+				var pm = new private_conversation(this, target_userhash, pms_details[target_userhash]['MESSAGES'], auto_open_conv);
+
+				this.pms.push(pm);
 			}
-			var pm = new private_conversation(this, target_userhash, pms_details[target_userhash]['MESSAGES'], auto_open_conv);
-
-			this.pms.push(pm);
-		}
-
+			if(this.pms.length == 0)
+			{
+				document.getElementById('chabit_pms').innerHTML = '';
+			}
 	}
 
 
@@ -235,14 +240,21 @@ class user
 		}else
 		{
 			console.log('Display Login form');
+			//get current value
+			var current_input_login = document.getElementById('input_login');
+			var current_magic_pass = document.getElementById('input_pass');
+			
 			this.reset();
-			loginbox.innerHTML = 'Login : <input type="text" id="input_login" /><br />'
+			if (current_input_login === null)
+			{
+				loginbox.innerHTML = 'Login : <input type="text" id="input_login" /><br />'
 								+'Magic Pass: <input type="text" id="input_pass" /><br />'
 								+'<button id="login_btn">Login</button>';
 
-			//add listener to login button
-			this.login = this.login.bind(this);
-			document.getElementById('login_btn').addEventListener('click', this.login, false);
+				//add listener to login button
+				this.login = this.login.bind(this);
+				document.getElementById('login_btn').addEventListener('click', this.login, false);
+			}
 			
 		}
 	}
