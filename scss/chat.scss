@@ -1,0 +1,206 @@
+@import 'variables';
+
+html, body {
+	 margin:0;
+	 padding:0;
+}
+
+
+chat{
+	margin:0;
+ 	padding:0;
+ 	font-family: 'Roboto', sans-serif;
+}
+
+chat
+{
+	position: absolute;
+	bottom:0;
+	right: 20px;
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: flex-end;
+
+	.chatbox
+	{
+		width: $chatbox-width;
+		margin-left: 20px;
+		
+		
+		background-color:$chatbox-background-color;
+		
+		border-radius: 5px 5px 0 0;
+		border:1px solid $chatbox-border-color;
+
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		
+
+		.subchatbox
+		{
+			
+			width: 100%;
+
+			.subchatboxheader
+			{
+				height:$subchatbox-header-height;
+				background-color: $subchatbox-header-bg-color-normal;
+				color: $subchatbox-header-text-color-normal;
+				
+				&.inactive{
+					background-color: $subchatbox-header-bg-color-inactive;
+				}
+
+				&.alert{
+					background-color: $subchatbox-header-bg-color-alert
+				}
+
+				.title{
+					padding-left: 10px;
+				}
+				.cb_buttons{
+					float:right;
+					padding:0;
+
+					margin-right: 10px;
+					margin-top: -10px;
+					
+					line-height: 0px;
+					
+					.minimise{
+						font-size: 3em;
+						padding-right: 10px;
+						font-weight: bold;
+						
+						&:hover{
+							color: orange;
+						}						
+					}
+					.close{
+						font-size: 3em;
+						padding-top: -10px;
+
+						&:hover{
+							color: red;
+						}
+
+					}
+				}
+			}
+			.subchatboxcontent
+			{
+				height: $subchatbox-content-height;
+				background-color: $subchatbox-content-bg-color-normal;
+				color: $subchatbox-content-text-color-normal;
+				overflow-y: scroll;
+
+				&.disabled{
+					background-color: $subchatbox-content-bg-color-inactive;
+					color: $subchatbox-content-text-color-inactive;
+				}
+
+				.user_list, .chatroom_list{
+					list-style: none;
+					margin: 0;
+  					padding: 0;
+  					li{
+  						padding: 5px 10px 5px 10px;
+
+  						&.active{
+  							color: green;
+  						}
+  						&.afk{
+  							color: orange;
+  						}
+  						&.inactive{
+  							color: red;
+  						}
+  						&.alert{
+	  						-webkit-animation: NEW_UNREAD_MP 1s infinite; /* Safari 4+ */
+							-moz-animation:    NEW_UNREAD_MP 1s infinite; /* Fx 5+ */
+							-o-animation:      NEW_UNREAD_MP 1s infinite; /* Opera 12+ */
+							animation:         NEW_UNREAD_MP 1s infinite; /* IE 10+, Fx 29+ */
+  						}
+  					}
+				}
+				
+
+				.chat-messages
+				{
+					padding-left: 10px;
+					padding-right: 10px;
+
+					.chat-message
+					{
+						margin-top: 15px;
+						margin-right: 40px;
+						padding: 5px;
+						background-color: $chat-message-bg-color;
+						border-radius: 10px;
+
+						color: $chat-message-text-color;
+
+						&.user-message
+						{
+							margin-right: 0px;
+							margin-left: 40px;
+							background-color: $chat-message-user-bg-color;
+							color: $chat-message-user-text-color;
+						}
+
+						.chat-message-username{
+							font-size: 0.7em;
+							&:before {
+								content: ">>";
+							}
+						}
+					}
+				}
+
+			}
+			.subchatboxfooter
+			{
+				height: $subchatbox-footer-height;
+				input
+				{
+					width : 95%;
+					margin-left: 5px;
+				}
+			}
+
+		}
+	}
+
+}
+
+
+#chabit_chat_main
+{
+
+	.subchatboxcontent
+	{
+		height: 320px;
+	}
+	.subchatboxfooter
+	{
+		height: 80px;
+		input{
+			width: 120px;
+		}
+		button
+		{
+			width: 100%;
+		}
+	}
+}
+
+@-webkit-keyframes NEW_UNREAD_MP 
+{
+	0%, 49% {
+	    background-color: $blue-light0;
+	}
+	50%, 100% {
+	    background-color: $white-alt;
+	}
+}

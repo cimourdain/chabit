@@ -1,0 +1,52 @@
+$dark-blue: #2C3E50;
+$red: #E74C3C;
+$white-alt: #ECF0F1;
+$blue-light0: #AED6F1 ;
+$blue-light1: #3498DB;
+$blue-light2: #2980B9;
+$grey-light: #CCC;
+$grey-dark: #34495E;
+
+//
+$page-bg-color: $red;
+$h1-text-color: $white-alt;
+
+
+/********** chatbox *************/
+$chatbox-width: 250px;
+$chatbox-background-color:$white-alt;
+$chatbox-border-color: $dark-blue;
+
+
+/********** subchatbox *************/
+//dimension
+$subchatbox-header-height:25px;
+$subchatbox-content-height: 400px;
+$subchatbox-footer-height: 25px;
+
+//-------------header
+$subchatbox-header-bg-color-normal: $dark-blue;
+$subchatbox-header-text-color-normal: $white-alt;
+
+//inactive
+$subchatbox-header-bg-color-inactive: $grey-light;
+$subchatbox-header-text-color-inactive: $grey-dark;
+
+//alert
+$subchatbox-header-bg-color-alert: $red;
+$subchatbox-header-text-color-alert: $dark-blue;
+
+
+//-------------content
+$subchatbox-content-bg-color-normal: $white-alt;
+$subchatbox-content-text-color-normal: $dark-blue;
+
+//inactive
+$subchatbox-content-bg-color-inactive: $grey-light;
+$subchatbox-content-text-color-inactive: $grey-dark;
+
+//messages
+$chat-message-bg-color: $blue-light2;
+$chat-message-text-color: $white-alt;
+$chat-message-user-bg-color: $blue-light0;
+$chat-message-user-text-color: $dark-blue;

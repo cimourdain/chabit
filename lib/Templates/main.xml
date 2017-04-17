@@ -1,0 +1,22 @@
+<div class="chatbox" id="chabit_chat_main">
+  	<div class="subchatbox" id="chabit_online_users_list">
+	  	<div class="subchatboxheader">
+		    <div class="title">Online Users</div>
+		    <div class="cb_buttons">
+		      <span class="minimise">-</span>
+		    </div>
+		</div><!--subchatboxheader-->
+		<div class="subchatboxcontent disabled">
+      <ul class="user_list">
+		    Loading ...
+      </ul>
+		</div><!--subchatboxcontent-->
+		<div class="subchatboxfooter" id="chabit_loginbox">
+		    Loading ...
+		</div><!--subchatboxfooter-->
+  	</div><!--subchatbox-->
+
+</div><!--chatbox-->
+
+<div class="chatbox" id="chabit_pms">
+</div><!--chatbox-->

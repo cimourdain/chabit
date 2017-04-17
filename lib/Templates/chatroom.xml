@@ -1,0 +1,14 @@
+<div class="subchatbox chatroom" id="chabit_chatroom_TARGET_HASH">
+<div class="subchatboxheader">
+  <div class="title">TARGET_NAME</div>
+  <div class="cb_buttons">
+    <span class="minimise">-</span>
+    <span class="close">x</span>
+  </div>
+</div><!--subchatboxheader-->
+<div class="subchatboxcontent disabled">
+  Loading...
+</div><!--subchatboxcontent-->
+<div class="subchatboxfooter">
+  <input type="text" class="post_text" id="post_to_pm_TARGET_HASH" target="TARGET_HASH"/>
+</div><!--subchatboxfooter-->
