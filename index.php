@@ -24,7 +24,7 @@ session_start();
 
     <script >
       chat = new chabit();
-      //setInterval(function(){ chat.updateChat()}, 5000);
+      setInterval(function(){ chat.updateChat()}, 1000);
     </script>
   </body>
 
